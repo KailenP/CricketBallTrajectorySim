@@ -43,14 +43,13 @@ def calc_trajectory(theta, v0, Cd = 0.6, den_air = 1.3, dt=0.1, n_iter = 10000, 
     return x[final_iter]
 
 
-
 best_angles = []
 velocities = np.arange(10, 60,1 )
 for v in velocities:
     xvals = []
     angles = []
     for i in np.arange(0, 90, 0.1):
-        x_dist = calc_trajectory(i,v, dt=0.05, n_iter= 100000)
+        x_dist = calc_trajectory(i,v, dt=0.05, n_iter= 1000)
         xvals.append(x_dist)
         angles.append(i)
     best_angles.append(angles[np.argmax(xvals)])
